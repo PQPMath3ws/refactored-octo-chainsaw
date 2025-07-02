@@ -1,0 +1,13 @@
+name: Deploy Imersao Alura DevOps Ellis
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    name: Building the Docker Image
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build . --file Dockerfile --tag imersao-alura-devops-ellis:$(date +%s)
